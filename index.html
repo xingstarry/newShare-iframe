@@ -29,17 +29,11 @@
       <iframe id="parentId" src="https://3g.163.com/news/article/DA2NNPSD000189FH.html#adaptation=pc&refer=http%3A%2F%2Fnews.163.com%2F" frameborder="0" height="100%" scrolling='auto' style="width: 1px; min-width: 100%; *width: 100%; " ></iframe>
     </div>
 
-    <a href="#" id="openBtn">App内打开</a>
-    <footer>
-      <ul>
-        <!--<li><a href="#">51天蒸发1.4万亿！人类史上最大泡沫要破了51天蒸发1.4万亿！人类史上最大泡沫要破了</a></li>
-        <li><a href="#">51天蒸发1.4万亿！人类史上最大泡沫要破了</a></li>-->
-      </ul>
-    </footer>
+    <a href="#" id="openBtn" style="bottom:1.5rem;">App内打开</a>
+
   </div>
 </body>
 <script src="js/jquery.min.js"></script>
-<script src="js/gunping.js"></script>
 <script>
     (function(win,doc){
         function change(){
@@ -57,8 +51,7 @@
         var clientH = $(window).height();
         var clientW = $(window).width();
         var headH = $('header').outerHeight();
-        var footerH = $('footer').outerHeight();
-        var contentH = clientH-headH-footerH;
+        var contentH = clientH-headH;
         obj.css('height',contentH+'px');
     }
     var clientWidth = document.documentElement.clientWidth;
@@ -68,10 +61,6 @@
         oIframe.height(iframeHeight);
     };
 
-    /***********************gunping*****************************/
-    var oGunpingBox = $('footer');
-    var oUl = oGunpingBox.children();
-    gunping(oGunpingBox,oUl);
 
     /***********************判断是微信*****************************/
     var openBtn = $('#openBtn');
