@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="UTF-8">
+  <title>白菜头条</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="css/newsShare.css">
+  <style>
+    html,body,#newsShare{
+      height: 100%;
+    }
+    #newsShare{
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</head>
+<body style="height: 100%">
+  <div id="newsShare" style="width:100%;height: 100%; overflow: hidden">
+    <header>
+      <h2>白菜头条</h2>
+      <div class="headerBtn">
+        <a href="#" class="downLoadAPP">下载App</a>
+        <!--<a href="#" class="register-login">注册或登录</a>-->
+      </div>
+    </header>
+
+    <div id="iframe-box" style="overflow: auto;-webkit-overflow-scrolling:touch;width:100%;height: 100%">
+      <iframe id="parentId" src="https://3g.163.com/news/article/DA2NNPSD000189FH.html#adaptation=pc&refer=http%3A%2F%2Fnews.163.com%2F" frameborder="0" height="100%" scrolling='no' style="width: 1px; min-width: 100%; *width: 100%; " ></iframe>
+    </div>
+
+    <a href="#" id="openBtn">App内打开</a>
+    <footer>
+      <ul>
+        <!--<li><a href="#">51天蒸发1.4万亿！人类史上最大泡沫要破了51天蒸发1.4万亿！人类史上最大泡沫要破了</a></li>
+        <li><a href="#">51天蒸发1.4万亿！人类史上最大泡沫要破了</a></li>-->
+      </ul>
+    </footer>
+  </div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/gunping.js"></script>
+<script>
+    (function(win,doc){
+        function change(){
+            doc.documentElement.style.fontSize = 20 * document.documentElement.clientWidth / 375 + 'px';
+        }
+        win.addEventListener('resize',change,false);
+        change();
+    })(window,document);
+
+/***********************iframe*****************************/
+    var oIframeBox = $('#iframe-box');
+    var oIframe = $('#external-frame');
+    clientHeight(oIframeBox);
+    function  clientHeight(obj) {
+        var clientH = $(window).height();
+        var clientW = $(window).width();
+        var headH = $('header').outerHeight();
+        var footerH = $('footer').outerHeight();
+        var contentH = clientH-headH-footerH;
+        obj.css('height',contentH+'px');
+    }
+    var clientWidth = document.documentElement.clientWidth;
+    oIframe.width(clientWidth + 'px');
+    oIframe.onload = function () {
+        var iframeHeight = oIframe.contents().find("body").height();
+        oIframe.height(iframeHeight);
+    };
+
+    /***********************gunping*****************************/
+    var oGunpingBox = $('footer');
+    var oUl = oGunpingBox.children();
+    gunping(oGunpingBox,oUl);
+
+    /***********************判断是微信*****************************/
+    var openBtn = $('#openBtn');
+    openBtn.on('click',function () {
+        if (navigator.userAgent.match(/MicroMessenger/ig) ){ //判断是微信浏览器跳转
+            location.href = 'isWinxin.html';
+        }
+    });
+</script>
+
+</html>

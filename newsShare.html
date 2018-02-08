@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>白菜头条</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="css/newsShare.css">
+</head>
+<body>
+  <div>
+    <header>
+      <h2>白菜头条</h2>
+      <div class="headerBtn">
+        <a href="#" class="downLoadAPP">下载App</a>
+        <!--<a href="#" class="register-login">注册或登录</a>-->
+      </div>
+    </header>
+    <section>
+      <h2>中国古董首饰缘何让加拿大顶级收藏家痴迷终身</h2>
+      <div class="person">
+        <div class="personImg"><img src="img/personImg_normal.png" alt=""></div>
+        <div class="personInfo">
+          <h4>彼岸花的情感</h4>
+          <p>11.18-18:08</p>
+        </div>
+      </div>
+      <div class="article">
+        <p>Susan Dods，加拿大资深的中国古董首饰收藏家，于2013年11月因再生障碍性贫血逝世，生前居住在加拿大安大略省，收藏中国古董首饰三十多年。今天我们来赏析Susan Dods的部分藏品，看外国友人对中国古董首饰是如何理解认识的？希望大家看到这些作品，能够看到外国友人对中国传统的热爱，让更多的人了解并爱上中国古董首饰。她虽然离开了这个世界，但是她的藏品还会继续流传下去，感动并震撼着所有热爱古懂珠宝的人们！音乐无国界，收藏有国界，但传承与保护却是全人类共同的心愿，愿她在天国快乐。</p>
+        <img style="width: 100%" src="img/articleImg.png" alt="">
+      </div>
+    </section>
+    <a href="#" id="openBtn">App内打开</a>
+  </div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script>
+    (function(win,doc){
+        function change(){
+            doc.documentElement.style.fontSize = 20 * document.documentElement.clientWidth / 375 + 'px';
+        }
+        win.addEventListener('resize',change,false);
+        change();
+    })(window,document);
+
+    var openBtn = $('#openBtn');
+    openBtn.on('click',function () {
+        if (navigator.userAgent.match(/MicroMessenger/ig) ){ //判断是微信浏览器跳转
+            location.href = 'isWinxin.html';
+        }
+    });
+
+</script>
+</html>
